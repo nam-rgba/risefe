@@ -9,34 +9,15 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  ChevronDown,
 } from "@/components/ui/sidebar";
-import { Contact, Home, FileClock, Settings } from "lucide-react";
-import logo from "../assets/logo.jfif";
 import { Link, useLocation } from "react-router";
-
-const sidebarItem = [
-  {
-    icon: Home,
-    label: "Dashboard",
-    href: "/dashboard",
-
-  },
-  {
-    icon: Contact,
-    label: "Customer",
-    href: "/dashboard/customer",
-  },
-  {
-    icon: FileClock,
-    label: "History",
-    href: "/dashboard/history",
-  },
-  {
-    icon: Settings,
-    label: "Settings",
-    href: "/dashboard/settings",
-  },
-];
+import { adminSidebarRoutes } from "@/routes/adminRoutes";
+import { teams } from "@/db/team.mock";
 
 const LabelGr = ({ label }: { label: string }) => {
   return (
@@ -49,33 +30,45 @@ export function Side() {
   const here = useLocation().pathname;
   console.log(here);
   return (
-    <Sidebar className="pl-4">
+    <Sidebar className="" collapsible="icon">
       <SidebarHeader>
-        <div className="flex items-center h-10 my-4">
-          <img src={logo} alt="" className="h-10 " />
-          <div className="text-2xl font-bold font-mono w-[80%] h-full flex items-end  pl-4 text-[#00913e]">
-            RICSE
-          </div>
-        </div>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton>
+                  Select Workspace
+                  <ChevronDown className="ml-auto" />
+                </SidebarMenuButton>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[--radix-popper-anchor-width]">
+                <DropdownMenuItem>
+                  <span>Acme Inc</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <span>Acme Corp.</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </SidebarMenuItem>
+        </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent className="pl-2 pr-2 text-[#2a472f]">
+      <SidebarContent>
+        {/* Group for management */}
         <SidebarGroup>
-          <LabelGr label="MANAGER" />
+          <LabelGr label="MANAGEMENT" />
           <SidebarGroupContent>
             <SidebarMenu>
-              {sidebarItem.map((item) => (
-                <SidebarMenuItem key={item.label} className="h-12">
-                  <SidebarMenuButton
-                    asChild
-                    className="  h-full transition-colors delay-0 duration-0 "
-                  >
-                    <Link
-                      to={item.href}
-                      className={`text-neutral-700  font-normal ${here == item.href ? "bg-[#00913e] text-white hover:bg-[#00913e] hover:text-white" : "hover:bg-[#c7f7d0] hover:text-[#00913e]"} `}
-                    >
-                      <div className="flex items-center h-full pl-1">
-                        <item.icon className="mr-2 h-4 w-4" />
-                        {item.label}
+              {adminSidebarRoutes.map(({ path, title, icon: Icon }) => (
+                <SidebarMenuItem
+                  key={path}
+                  className="hover:bg-gray-200 py-2 rounded"
+                >
+                  <SidebarMenuButton asChild>
+                    <Link to={path}>
+                      <div className="flex items-center gap-2">
+                        {Icon && <Icon className="h-4 w-4" />}
+                        <span>{title}</span>
                       </div>
                     </Link>
                   </SidebarMenuButton>
@@ -84,6 +77,8 @@ export function Side() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Group for config */}
         <SidebarGroup />
         <SidebarGroup />
       </SidebarContent>
