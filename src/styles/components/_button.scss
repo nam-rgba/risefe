@@ -1,0 +1,60 @@
+.primary{
+    background-color: $color-primary;
+    color: $color-text-white;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: darken($color-primary, 5%);
+    }
+}
+
+
+.outline {
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        background-color: $color-primary;
+        color: $color-text-white;
+    }
+}
+
+.ghost {
+    background-color: transparent;
+    border: none;
+    color: $color-primary;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+        background-color: lighten($color-primary, 40%);
+    }
+}
+
+.sm {
+    padding: $spacing-xs $spacing-sm;
+    line-height: $line-height-sm;
+    font-size: $font-size-xs;
+    border-radius: $radius-sm;
+}
+
+.md {
+    padding: $spacing-sm $spacing-md;
+    line-height: $line-height-md;
+    font-size: $font-size-sm;
+    border-radius: $radius-md;
+}
+
+.lg {
+    padding: $spacing-md $spacing-lg;
+    line-height: $line-height-lg;
+    font-size: $font-size-md;
+    border-radius: $radius-lg;
+}

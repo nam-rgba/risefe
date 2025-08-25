@@ -1,7 +1,7 @@
 // ✨ ABSTRACTS
 @import "./abstracts/variables";
-@import "./abstracts/mixins";
-@import "./abstracts/functions";
+@import "./abstracts/mixin";
+@import "./abstracts/function";
 @import "./abstracts/placeholders";
 
 // 🔤 BASE STYLES
@@ -10,3 +10,7 @@
 // theme
 @import "./theme/dark";
 @import "./theme/default";
+
+
+// components
+@import "./components/button";
