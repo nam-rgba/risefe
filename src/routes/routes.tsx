@@ -1,40 +1,21 @@
 import {  createBrowserRouter } from "react-router";
+import { publicPermission } from "./publicPermission";
 import PageTitle from "./PageTitle";
-import DashboardLayout from "@/pages/admin/DashboardLayout";
-import Dashboard from "@/pages/admin/Dashboard";
-import Staffs from "@/pages/admin/staffs/Staff";
-import Projects from "@/pages/admin/projects/Projects";
-import Tasks from "@/pages/admin/tasks/Tasks";
-import { JSX } from "react";
-import { adminSidebarRoutes } from "./adminRoutes";
+import Landing from "@/pages/Landing";
+import NotFound from "@/pages/NotFound";
 
-const pageComponentMap: Record<string, JSX.Element> = {
-  "/admin/dashboard": <Dashboard />,
-  "/admin/staff": <Staffs />,
-  "/admin/projects": <Projects />,
-  "/admin/tasks": <Tasks />,
-};
-
-const  adminChildrenRoutes = adminSidebarRoutes.map(({ path, title }) => ({
-  path,
-  element: <PageTitle title={title} element={pageComponentMap[path]} />,
-}));
-
-
-
-
-const routes = createBrowserRouter([
+const publicRoutes = createBrowserRouter([
   {
-    path: "/",
-    element: <PageTitle title="HOME" element={<h1>HOME</h1>} />,
+    path: publicPermission.landing,
+    element: <PageTitle title="Landing" element={<Landing />} />,
   },
+
+
+
   {
-    path: "/admin",
-    element: <DashboardLayout />,
-    children: adminChildrenRoutes
+    path: publicPermission.notFound,
+    element: <PageTitle title="404" element={<NotFound />} />,
   }
 ])
 
-
-
-export default routes;
+export { publicRoutes };
