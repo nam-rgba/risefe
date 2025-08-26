@@ -9,9 +9,6 @@ const publicRoutes = createBrowserRouter([
     path: publicPermission.landing,
     element: <PageTitle title="Landing" element={<Landing />} />,
   },
-
-
-
   {
     path: publicPermission.notFound,
     element: <PageTitle title="404" element={<NotFound />} />,
