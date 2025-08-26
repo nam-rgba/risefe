@@ -10,6 +10,10 @@
     }
 }
 
+.primary-full {
+    @extend .primary;
+    width: 100%;
+}
 
 .outline {
     background-color: transparent;
@@ -23,6 +27,11 @@
         background-color: $color-primary;
         color: $color-text-white;
     }
+}
+
+.outline-full {
+    @extend .outline;
+    width: 100%;
 }
 
 .ghost {

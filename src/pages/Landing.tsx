@@ -4,17 +4,14 @@ const Landing = () => {
   return (
     <div>
       <Button variant="primary" size="sm">
-        Get Started
+        Get Startedddd
       </Button>
 
-      <Button variant="outline" size="md">
+    <div className="w-20">
+      <Button variant="primaryfull" size="sm">
         Learn More
       </Button>
-
-      <Button variant="ghost" size="lg">
-        Contact Us
-      </Button>
-
+    </div>
     </div>
   )
 }

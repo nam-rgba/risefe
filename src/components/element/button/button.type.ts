@@ -1,4 +1,4 @@
-export type ButtonVariant = "primary" | "outline" | "ghost";
+export type ButtonVariant = "primary" | "outline" | "ghost" | "primaryfull" | "outlinefull";
 
 export type ButtonSize = "sm" | "md" | "lg";
 
