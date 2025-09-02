@@ -1,6 +1,16 @@
+import LoginForm from "./components/LoginForm";
+import './Layout.scss'
 
-export const AuthLayout = () => {
+
+export interface AuthLayoutProps {
+  type: "login" | "register";
+}
+
+
+export const AuthLayout = ({ type }: AuthLayoutProps) => {
   return (
-    <div>Auth Layout</div>
+    <div className="container-single">
+      <LoginForm/>
+    </div>
   )
 }

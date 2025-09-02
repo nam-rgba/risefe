@@ -1,0 +1,11 @@
+.normal {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+
+    &:focus {
+        border-color: #6b63f1;
+        outline: none;
+    }
+}

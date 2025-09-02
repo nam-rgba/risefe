@@ -2,6 +2,7 @@ import clsx from "clsx";
 import React from "react";
 import { ButtonProps } from "./button.type";
 import { buttonVariants, buttonSizes } from "./button.config";
+import './Button.scss'
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -14,6 +15,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       leftIcon,
       rightIcon,
+      type="button",
       ...rest
     },
     ref
@@ -32,6 +34,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         disabled={disabled || isLoading}
+        type={type}
         {...rest}
       >
         {isLoading ? (

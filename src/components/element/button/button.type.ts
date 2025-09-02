@@ -1,6 +1,7 @@
-export type ButtonVariant = "primary" | "outline" | "ghost" | "primaryfull" | "outlinefull";
+import { buttonSizes, buttonVariants } from "./button.config";
 
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonVariant = keyof typeof buttonVariants;
+export type ButtonSize = keyof typeof buttonSizes;
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
