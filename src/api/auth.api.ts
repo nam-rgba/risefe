@@ -7,7 +7,13 @@ const login = async (data: any) => {
     return response.data;
 };
 
+const register = async (data: any) => {
+    const response = await axiosInstance.post("/user/signup", data);
+    return response.data;
+};
+
 
 export const authApi = {
     login,
+    register,
 };

@@ -40,15 +40,15 @@ export const AlertProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
       <Snackbar
         open={alertState.open}
-        autoHideDuration={4000}
+        autoHideDuration={2000}
         onClose={handleClose}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        
       >
         <MuiAlert
           onClose={handleClose}
           severity={alertState.severity}
           sx={{ width: "100%" }}
+          variant="filled"
         >
           {alertState.title && <strong>{alertState.title} — </strong>}
           {alertState.message}
